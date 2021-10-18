@@ -1,0 +1,17 @@
+.container .crud {
+	/* background-color: #000 !important; */
+	border: 1px solid #fff !important;
+	/* box-shadow: -2px 4px 4px -2px #fff !important; */
+}
+.material-icons {
+	cursor: pointer;
+}
+
+.card {
+	border: none !important;
+}
+
+.container {
+	padding: 0% 0% 0% 0% !important;
+	box-shadow: 1px 0px 8px 5px #9c008cd1 !important;
+}
