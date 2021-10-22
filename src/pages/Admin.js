@@ -1,10 +1,13 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useState, useEffect, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
 import "../style/Home.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Redirect } from "react-router-dom";
+import MyContext from "../context/MyContext";
 import { api } from "../utils/api";
 
-function Home() {
+const Admin = () => {
+	const { isAuthenticated, setIsAuthenticated } = useContext(MyContext);
 	const [upvotedContestants, setUpvotedContestants] = useState([]);
 
 	// Model Show Hide State
@@ -13,9 +16,6 @@ function Home() {
 	const [profileShow, setProfileShow] = useState(false);
 	const [id, setId] = useState("");
 	const [singleContestant, setSingleContestant] = useState({});
-
-	// Main Contestant State
-	const [contestants, setContestants] = useState([]);
 
 	// Add Contestant Form State
 	const [name, setName] = useState("");
@@ -42,33 +42,13 @@ function Home() {
 		fetchProfile(profId);
 	};
 
+	// Main Contestant State
+	const [contestants, setContestants] = useState([]);
+
 	async function fetchData(options) {
 		const data = await api(options);
 		setContestants(data.data);
 	}
-
-	const editContestant = async () => {
-		const resp = await api({
-			method: "PATCH",
-			url: `/contestants/${id}`,
-			data: {
-				name,
-			},
-		});
-		if (resp.data.status === "ok") {
-			fetchData({
-				method: "GET",
-				url: "/contestants",
-			});
-		} else {
-			/**
-			 * * TODO:// Add Sweat Alert
-			 */
-			alert("Something Went Wrong!!!");
-		}
-		handleEditClose();
-		setName("");
-	};
 
 	const addContestant = async (e) => {
 		e.preventDefault();
@@ -102,7 +82,6 @@ function Home() {
 			alert("You have already upvoted this contestant");
 			return;
 		} else {
-			// console.log("not upvoted");
 			const response = await api({
 				method: "PATCH",
 				url: `/contestants/${profId}/upvote`,
@@ -113,11 +92,44 @@ function Home() {
 				method: "GET",
 				url: "/contestants",
 			});
-
 			// set upvotedContestants
 			setUpvotedContestants(upvotedContestants.concat([{ id: profId }]));
 		}
 	};
+
+	const editContestant = async () => {
+		const resp = await api({
+			method: "PATCH",
+			url: `/contestants/${id}`,
+			data: {
+				name,
+			},
+		});
+		if (resp.data.status === "ok") {
+			fetchData({
+				method: "GET",
+				url: "/contestants",
+			});
+		} else {
+			/**
+			 * * TODO:// Add Sweat Alert
+			 */
+			alert("Something Went Wrong!!!");
+		}
+		handleEditClose();
+		setName("");
+	};
+
+	async function deleteContestant(id) {
+		await api({
+			method: "DELETE",
+			url: `/contestants/${id}`,
+		});
+		fetchData({
+			method: "GET",
+			url: "/contestants",
+		});
+	}
 
 	useEffect(() => {
 		fetchData({
@@ -126,6 +138,8 @@ function Home() {
 		});
 	}, []);
 
+	if (isAuthenticated === false || isAuthenticated === null)
+		return <Redirect to="/login" />;
 	return (
 		<div className="container ">
 			<div className="crud shadow-lg p-3 mb-5 mt-5 bg-body rounded">
@@ -187,7 +201,6 @@ function Home() {
 													);
 												}}
 												className="material-icons"
-												id={contestant.id}
 												style={{ color: "purple" }}>
 												&#x25B3;
 											</i>
@@ -212,6 +225,16 @@ function Home() {
 												className="material-icons"
 												style={{ color: "#0D6EFD" }}>
 												&#xE254;
+											</i>
+											<i
+												onClick={(e) => {
+													deleteContestant(
+														contestant.id,
+													);
+												}}
+												className="material-icons"
+												style={{ color: "red" }}>
+												&#xE872;
 											</i>
 										</td>
 									</tr>
@@ -446,6 +469,6 @@ function Home() {
 			</div>
 		</div>
 	);
-}
+};
 
-export default Home;
+export default Admin;
