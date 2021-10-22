@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/pmhacktoberfest-frontend-challenge/static/css/main.d9f5422e.chunk.css",
-    "main.js": "/pmhacktoberfest-frontend-challenge/static/js/main.1dcaf0c3.chunk.js",
-    "main.js.map": "/pmhacktoberfest-frontend-challenge/static/js/main.1dcaf0c3.chunk.js.map",
+    "main.css": "/pmhacktoberfest-frontend-challenge/static/css/main.53a717dd.chunk.css",
+    "main.js": "/pmhacktoberfest-frontend-challenge/static/js/main.5d8efd8f.chunk.js",
+    "main.js.map": "/pmhacktoberfest-frontend-challenge/static/js/main.5d8efd8f.chunk.js.map",
     "runtime-main.js": "/pmhacktoberfest-frontend-challenge/static/js/runtime-main.98e9409d.js",
     "runtime-main.js.map": "/pmhacktoberfest-frontend-challenge/static/js/runtime-main.98e9409d.js.map",
     "static/css/2.0a9ec390.chunk.css": "/pmhacktoberfest-frontend-challenge/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.b55561b9.chunk.js": "/pmhacktoberfest-frontend-challenge/static/js/2.b55561b9.chunk.js",
-    "static/js/2.b55561b9.chunk.js.map": "/pmhacktoberfest-frontend-challenge/static/js/2.b55561b9.chunk.js.map",
+    "static/js/2.53250a3d.chunk.js": "/pmhacktoberfest-frontend-challenge/static/js/2.53250a3d.chunk.js",
+    "static/js/2.53250a3d.chunk.js.map": "/pmhacktoberfest-frontend-challenge/static/js/2.53250a3d.chunk.js.map",
     "index.html": "/pmhacktoberfest-frontend-challenge/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/pmhacktoberfest-frontend-challenge/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.d9f5422e.chunk.css.map": "/pmhacktoberfest-frontend-challenge/static/css/main.d9f5422e.chunk.css.map",
-    "static/js/2.b55561b9.chunk.js.LICENSE.txt": "/pmhacktoberfest-frontend-challenge/static/js/2.b55561b9.chunk.js.LICENSE.txt"
+    "static/css/main.53a717dd.chunk.css.map": "/pmhacktoberfest-frontend-challenge/static/css/main.53a717dd.chunk.css.map",
+    "static/js/2.53250a3d.chunk.js.LICENSE.txt": "/pmhacktoberfest-frontend-challenge/static/js/2.53250a3d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.98e9409d.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.b55561b9.chunk.js",
-    "static/css/main.d9f5422e.chunk.css",
-    "static/js/main.1dcaf0c3.chunk.js"
+    "static/js/2.53250a3d.chunk.js",
+    "static/css/main.53a717dd.chunk.css",
+    "static/js/main.5d8efd8f.chunk.js"
   ]
 }
