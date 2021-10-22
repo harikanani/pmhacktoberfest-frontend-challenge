@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import "../style/Home.css";
 import { api } from "../utils/api";

@@ -8,28 +8,25 @@ import MyContext from "./context/MyContext";
 
 const App = () => {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
-	const [upvotedContestants, setUpvotedContestants] = useState({});
+	// const [upvotedContestants, setUpvotedContestants] = useState({});
 	const isAuthenticatedContext = {
 		isAuthenticated,
 		setIsAuthenticated,
-		upvotedContestants,
-		setUpvotedContestants,
 	};
 
 	return (
-		<MyContext.Provider
-			value={(isAuthenticatedContext, upvotedContestants)}>
-			<Router>
+		<MyContext.Provider value={isAuthenticatedContext}>
+			<Router basename="/pmhacktoberfest-frontend-challenge">
 				<Switch>
 					<div className="app">
+						<Route exact path="/">
+							<Home />
+						</Route>
 						<Route exact path="/admin">
 							<Admin />
 						</Route>
 						<Route exact path="/login">
 							<Login />
-						</Route>
-						<Route exact path="/">
-							<Home />
 						</Route>
 					</div>
 				</Switch>

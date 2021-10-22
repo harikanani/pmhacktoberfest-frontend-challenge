@@ -7,7 +7,7 @@ import MyContext from "../context/MyContext";
 import { api } from "../utils/api";
 
 const Admin = () => {
-	const { isAuthenticated, setIsAuthenticated } = useContext(MyContext);
+	const { isAuthenticated } = useContext(MyContext);
 	const [upvotedContestants, setUpvotedContestants] = useState([]);
 
 	// Model Show Hide State
