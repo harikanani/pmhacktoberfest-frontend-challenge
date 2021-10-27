@@ -142,7 +142,9 @@ const Admin = () => {
 		return <Redirect to="/login" />;
 	return (
 		<div className="container ">
-			<div className="crud shadow-lg p-3 mb-5 mt-5 bg-body rounded">
+			<div
+				className="crud shadow-lg p-3 mb-5 mt-5 bg-body rounded"
+				style={{ opacity: 0.9 }}>
 				<div className="row ">
 					<div className="col-sm-3 mt-5 mb-4 text-gred"></div>
 					<div

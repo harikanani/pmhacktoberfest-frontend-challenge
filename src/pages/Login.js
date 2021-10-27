@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import MyContext from "../context/MyContext";
 import "../style/Login.css";
+import pumpkin from "./pumpkin.png";
 
 const Login = () => {
 	const { isAuthenticated, setIsAuthenticated } = useContext(MyContext);
@@ -29,10 +30,12 @@ const Login = () => {
 	return (
 		<div className="login-main">
 			<div className="login">
-				<input type="text" placeholder="email" id="email" />
-				<input type="password" placeholder="password" id="pass" />
+				<input type="text" placeholder="Email" id="email" />
+				<input type="password" placeholder="Password" id="pass" />
 				<button onClick={() => loginToAdmin()}>Login</button>
 			</div>
+			{/* <img src={pumpkin} alt="pumpkin" className="holloween-right" />
+			<img src={pumpkin} alt="pumpkin" className="holloween-left" /> */}
 		</div>
 	);
 };
