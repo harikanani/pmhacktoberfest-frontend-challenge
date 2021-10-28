@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Redirect } from "react-router-dom";
+import Swal from "sweetalert2";
 import MyContext from "../context/MyContext";
 import "../style/Login.css";
 
@@ -14,9 +15,20 @@ const Login = () => {
 			password === process.env.REACT_APP_PASSWORD
 		) {
 			// set isAuthenticated to true
+			Swal.fire({
+				position: "top-end",
+				icon: "success",
+				title: "Logged in Successfully",
+				showConfirmButton: false,
+				timer: 1500,
+			});
 			setIsAuthenticated(true);
 		} else {
-			alert("Email/Password is invalid!");
+			Swal.fire({
+				title: "Oops...",
+				text: "Email or Password is invalid",
+				icon: "error",
+			});
 		}
 	};
 

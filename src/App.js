@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import MyContext from "./context/MyContext";
@@ -17,7 +17,7 @@ const App = () => {
 	return (
 		<MyContext.Provider value={isAuthenticatedContext}>
 			<div className="app">
-				<Router basename="/pmhacktoberfest-frontend-challenge">
+				<Router>
 					<Switch>
 						<Route exact path="/">
 							<Home />

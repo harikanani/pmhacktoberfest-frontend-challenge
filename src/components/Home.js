@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
+import Swal from "sweetalert2";
 import "../style/Home.css";
 import { api } from "../utils/api";
 
@@ -88,24 +89,47 @@ function Home() {
 				method: "GET",
 				url: "/contestants",
 			});
-			handleClose();
 			setName("");
 			setAvatar("");
 			setCostumeTitle("");
 			setCity("");
 			setCountry("");
+			Swal.fire({
+				title: "Success",
+				text: "Contestant Added Successfully",
+				icon: "success",
+				timer: 1500,
+			});
+			handleClose();
 		}
 	};
 
 	const upvoteContestant = async (profId) => {
 		if (upvotedContestants.find(({ id }) => id === profId)) {
-			alert("You have already upvoted this contestant");
+			Swal.fire({
+				title: "Already upvoted!",
+				text: "You can only upvote once!",
+				icon: "warning",
+			});
 			return;
 		} else {
 			const response = await api({
 				method: "PATCH",
 				url: `/contestants/${profId}/upvote`,
 			});
+			if (response.data.status === "ok") {
+				Swal.fire({
+					title: "Upvoted!",
+					text: "You have successfully upvoted this contestant",
+					icon: "success",
+				});
+			} else {
+				Swal.fire({
+					title: "Oops!",
+					text: "Something went wrong",
+					icon: "error",
+				});
+			}
 
 			fetchData({
 				method: "GET",

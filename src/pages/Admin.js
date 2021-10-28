@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Redirect } from "react-router-dom";
 import MyContext from "../context/MyContext";
 import { api } from "../utils/api";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 const Admin = () => {
 	const { isAuthenticated } = useContext(MyContext);
@@ -75,7 +75,7 @@ const Admin = () => {
 			setCity("");
 			setCountry("");
 
-			swal({
+			Swal.fire({
 				title: "Success!",
 				text: "Contestant added successfully!",
 				icon: "success",
@@ -87,7 +87,7 @@ const Admin = () => {
 
 	const upvoteContestant = async (profId) => {
 		if (upvotedContestants.find(({ id }) => id === profId)) {
-			swal({
+			Swal.fire({
 				title: "Already Upvoted",
 				text: "You have already upvoted this contestant",
 				icon: "warning",
@@ -98,6 +98,20 @@ const Admin = () => {
 				method: "PATCH",
 				url: `/contestants/${profId}/upvote`,
 			});
+
+			if (response.data.status === "ok") {
+				Swal.fire({
+					title: "Upvoted!",
+					text: "You have successfully upvoted this contestant",
+					icon: "success",
+				});
+			} else {
+				Swal.fire({
+					title: "Oops!",
+					text: "Something went wrong",
+					icon: "error",
+				});
+			}
 
 			fetchData({
 				method: "GET",
@@ -121,13 +135,13 @@ const Admin = () => {
 				method: "GET",
 				url: "/contestants",
 			});
-			swal({
+			Swal.fire({
 				title: "Success!",
 				text: "Contestant updated successfully!",
 				icon: "success",
 			});
 		} else {
-			swal({
+			Swal.fire({
 				title: "Error!",
 				text: "Something went wrong",
 				icon: "error",
@@ -138,14 +152,16 @@ const Admin = () => {
 	};
 
 	async function deleteContestant(id) {
-		swal({
+		Swal.fire({
 			title: "Are you sure?",
-			text: "Once deleted, you will not be able to recover this imaginary file!",
+			text: "You won't be able to revert this!",
 			icon: "warning",
-			buttons: true,
-			dangerMode: true,
-		}).then(async (willDelete) => {
-			if (willDelete) {
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Yes, delete it!",
+		}).then(async (result) => {
+			if (result.isConfirmed) {
 				const data = await api({
 					method: "DELETE",
 					url: `/contestants/${id}`,
@@ -155,11 +171,13 @@ const Admin = () => {
 						method: "GET",
 						url: "/contestants",
 					});
-					swal("Contestant has been deleted!", {
+					Swal.fire({
+						title: "Deleted!",
+						text: "Contestant has been deleted.",
 						icon: "success",
 					});
 				} else {
-					swal("Something Went Wrog!!", {
+					Swal.fire("Something Went Wrog!!", {
 						icon: "error",
 					});
 				}
