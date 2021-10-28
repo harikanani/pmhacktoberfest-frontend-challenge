@@ -16,9 +16,9 @@ const App = () => {
 
 	return (
 		<MyContext.Provider value={isAuthenticatedContext}>
-			<Router basename="/pmhacktoberfest-frontend-challenge">
-				<Switch>
-					<div className="app">
+			<div className="app">
+				<Router basename="/pmhacktoberfest-frontend-challenge">
+					<Switch>
 						<Route exact path="/">
 							<Home />
 						</Route>
@@ -28,9 +28,9 @@ const App = () => {
 						<Route exact path="/login">
 							<Login />
 						</Route>
-					</div>
-				</Switch>
-			</Router>
+					</Switch>
+				</Router>
+			</div>
 		</MyContext.Provider>
 	);
 };

@@ -1,15 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Redirect } from "react-router-dom";
 import MyContext from "../context/MyContext";
 import "../style/Login.css";
-import pumpkin from "./pumpkin.png";
 
 const Login = () => {
 	const { isAuthenticated, setIsAuthenticated } = useContext(MyContext);
-	useEffect(() => {
-		console.log({ isAuthenticated });
-		console.log({ setIsAuthenticated });
-	}, [isAuthenticated, setIsAuthenticated]);
 
 	const loginToAdmin = () => {
 		let email = document.getElementById("email").value;
@@ -22,7 +17,6 @@ const Login = () => {
 			setIsAuthenticated(true);
 		} else {
 			alert("Email/Password is invalid!");
-			console.log("login failed");
 		}
 	};
 

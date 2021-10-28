@@ -102,12 +102,10 @@ function Home() {
 			alert("You have already upvoted this contestant");
 			return;
 		} else {
-			// console.log("not upvoted");
 			const response = await api({
 				method: "PATCH",
 				url: `/contestants/${profId}/upvote`,
 			});
-			console.log("upvote respo: ", response);
 
 			fetchData({
 				method: "GET",
@@ -197,7 +195,6 @@ function Home() {
 										<td>
 											<i
 												onClick={async () => {
-													// console.log(contestant.id);
 													handleProfileShow(
 														contestant.id,
 													);

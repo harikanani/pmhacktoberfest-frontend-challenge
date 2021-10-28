@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Redirect } from "react-router-dom";
 import MyContext from "../context/MyContext";
 import { api } from "../utils/api";
+import swal from "sweetalert";
 
 const Admin = () => {
 	const { isAuthenticated } = useContext(MyContext);
@@ -68,25 +69,35 @@ const Admin = () => {
 				method: "GET",
 				url: "/contestants",
 			});
-			handleClose();
 			setName("");
 			setAvatar("");
 			setCostumeTitle("");
 			setCity("");
 			setCountry("");
+
+			swal({
+				title: "Success!",
+				text: "Contestant added successfully!",
+				icon: "success",
+			});
+
+			handleClose();
 		}
 	};
 
 	const upvoteContestant = async (profId) => {
 		if (upvotedContestants.find(({ id }) => id === profId)) {
-			alert("You have already upvoted this contestant");
+			swal({
+				title: "Already Upvoted",
+				text: "You have already upvoted this contestant",
+				icon: "warning",
+			});
 			return;
 		} else {
 			const response = await api({
 				method: "PATCH",
 				url: `/contestants/${profId}/upvote`,
 			});
-			console.log("upvote respo: ", response);
 
 			fetchData({
 				method: "GET",
@@ -110,24 +121,49 @@ const Admin = () => {
 				method: "GET",
 				url: "/contestants",
 			});
+			swal({
+				title: "Success!",
+				text: "Contestant updated successfully!",
+				icon: "success",
+			});
 		} else {
-			/**
-			 * * TODO:// Add Sweat Alert
-			 */
-			alert("Something Went Wrong!!!");
+			swal({
+				title: "Error!",
+				text: "Something went wrong",
+				icon: "error",
+			});
 		}
 		handleEditClose();
 		setName("");
 	};
 
 	async function deleteContestant(id) {
-		await api({
-			method: "DELETE",
-			url: `/contestants/${id}`,
-		});
-		fetchData({
-			method: "GET",
-			url: "/contestants",
+		swal({
+			title: "Are you sure?",
+			text: "Once deleted, you will not be able to recover this imaginary file!",
+			icon: "warning",
+			buttons: true,
+			dangerMode: true,
+		}).then(async (willDelete) => {
+			if (willDelete) {
+				const data = await api({
+					method: "DELETE",
+					url: `/contestants/${id}`,
+				});
+				if (data.data.status === "ok") {
+					fetchData({
+						method: "GET",
+						url: "/contestants",
+					});
+					swal("Contestant has been deleted!", {
+						icon: "success",
+					});
+				} else {
+					swal("Something Went Wrog!!", {
+						icon: "error",
+					});
+				}
+			}
 		});
 	}
 
@@ -210,7 +246,6 @@ const Admin = () => {
 										<td>
 											<i
 												onClick={async () => {
-													// console.log(contestant.id);
 													handleProfileShow(
 														contestant.id,
 													);
