@@ -1,4 +1,5 @@
 {
+	"homepage": "https://pmhacktoberfest-frontend-challenge.vercel.app",
 	"name": "pmhacktober-fe",
 	"version": "0.1.0",
 	"private": true,
