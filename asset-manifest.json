@@ -1,26 +1,25 @@
 {
   "files": {
     "main.css": "/pmhacktoberfest-frontend-challenge/static/css/main.6fcb2703.chunk.css",
-    "main.js": "/pmhacktoberfest-frontend-challenge/static/js/main.6020a3a7.chunk.js",
-    "main.js.map": "/pmhacktoberfest-frontend-challenge/static/js/main.6020a3a7.chunk.js.map",
+    "main.js": "/pmhacktoberfest-frontend-challenge/static/js/main.def2d815.chunk.js",
+    "main.js.map": "/pmhacktoberfest-frontend-challenge/static/js/main.def2d815.chunk.js.map",
     "runtime-main.js": "/pmhacktoberfest-frontend-challenge/static/js/runtime-main.98e9409d.js",
     "runtime-main.js.map": "/pmhacktoberfest-frontend-challenge/static/js/runtime-main.98e9409d.js.map",
     "static/css/2.0a9ec390.chunk.css": "/pmhacktoberfest-frontend-challenge/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.a7180107.chunk.js": "/pmhacktoberfest-frontend-challenge/static/js/2.a7180107.chunk.js",
-    "static/js/2.a7180107.chunk.js.map": "/pmhacktoberfest-frontend-challenge/static/js/2.a7180107.chunk.js.map",
+    "static/js/2.881a9f23.chunk.js": "/pmhacktoberfest-frontend-challenge/static/js/2.881a9f23.chunk.js",
+    "static/js/2.881a9f23.chunk.js.map": "/pmhacktoberfest-frontend-challenge/static/js/2.881a9f23.chunk.js.map",
     "index.html": "/pmhacktoberfest-frontend-challenge/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/pmhacktoberfest-frontend-challenge/static/css/2.0a9ec390.chunk.css.map",
     "static/css/main.6fcb2703.chunk.css.map": "/pmhacktoberfest-frontend-challenge/static/css/main.6fcb2703.chunk.css.map",
-    "static/js/2.a7180107.chunk.js.LICENSE.txt": "/pmhacktoberfest-frontend-challenge/static/js/2.a7180107.chunk.js.LICENSE.txt",
+    "static/js/2.881a9f23.chunk.js.LICENSE.txt": "/pmhacktoberfest-frontend-challenge/static/js/2.881a9f23.chunk.js.LICENSE.txt",
     "static/media/App.css": "/pmhacktoberfest-frontend-challenge/static/media/holloween-1.2c3fd1f9.jpg",
-    "static/media/Login.css": "/pmhacktoberfest-frontend-challenge/static/media/holloween.2c3fd1f9.jpg",
-    "static/media/pumpkin.a2b3acd4.png": "/pmhacktoberfest-frontend-challenge/static/media/pumpkin.a2b3acd4.png"
+    "static/media/Login.css": "/pmhacktoberfest-frontend-challenge/static/media/holloween.2c3fd1f9.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.98e9409d.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.a7180107.chunk.js",
+    "static/js/2.881a9f23.chunk.js",
     "static/css/main.6fcb2703.chunk.css",
-    "static/js/main.6020a3a7.chunk.js"
+    "static/js/main.def2d815.chunk.js"
   ]
 }
